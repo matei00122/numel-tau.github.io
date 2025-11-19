@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sit demo — Prietenii pot deschide în Chrome</title>
+
+  <!-- Stiluri simple, responsive -->
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#06b6d4;
+      --text:#e6eef6;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,#071029 0%, #0b1530 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    header{
+      padding:20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      max-width:1000px;
+      margin:18px auto;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo{
+      width:48px;height:48px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),#7c3aed);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#042f35;
+      box-shadow:0 6px 18px rgba(3,6,23,0.6);
+    }
+    nav a{
+      color:var(--text); text-decoration:none; margin-left:14px; font-weight:600; opacity:0.92;
+    }
+    main{
+      max-width:1000px;
+      margin:0 auto;
+      padding:18px;
+    }
+    .hero{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:12px;
+      padding:22px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    }
+    h1{margin:0;font-size:26px}
+    p.lead{margin:6px 0 0;color:#cfeaf2}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:14px;
+      margin-top:14px;
+    }
+    .card{
+      background:var(--card);
+      padding:14px;
+      border-radius:10px;
+      min-height:110px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+    footer{
+      max-width:1000px;margin:18px auto;padding:12px;color:#9fb6c3;font-size:13px;text-align:center;
+    }
+
+    /* buton */
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:9px;text-decoration:none;font-weight:700;background:var(--accent);color:#062b32;
+      box-shadow: 0 8px 20px rgba(6,182,212,0.12);
+    }
+
+    /* formular (nu trimite nicăieri, doar exemplu) */
+    form label{display:block;margin:8px 0 6px;font-size:13px;color:#cfeaf2}
+    input[type="text"], input[type="email"], textarea{
+      width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);
+      background:rgba(255,255,255,0.02); color:var(--text);
+    }
+    textarea{min-height:90px;resize:vertical}
+    .note{font-size:13px;color:#8fb6bf;margin-top:8px}
+
+    @media(min-width:720px){
+      .hero{grid-template-columns:1fr 360px}
+      h1{font-size:30px}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="logo">W</div>
+      <div>
+        <div style="font-weight:800">Site Demo</div>
+        <div style="font-size:13px;color:#9fb6c3">Creat rapid — deschide-l în Chrome</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#despre">Despre</a>
+      <a href="#exemple">Exemple</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="titlu">
+      <div>
+        <h1 id="titlu">Salut! Prietenii tăi pot deschide acest fișier în Chrome</h1>
+        <p class="lead">Acesta este un exemplu de pagină statică HTML + CSS + JavaScript. Salveaz-o ca <code>index.html</code> și trimite fișierul prietenilor — ei doar îl deschid în browser.</p>
+
+        <div class="grid" id="exemple">
+          <div class="card">
+            <h3>1. Informație</h3>
+            <p style="margin:6px 0 0">Text, imagini și linkuri — toate funcționează dintr-un singur fișier.</p>
+          </div>
+
+          <div class="card">
+            <h3>2. Formular (local)</h3>
+            <p style="margin:6px 0 0">Acest formular nu trimite date către server — este doar demonstrativ.</p>
+          </div>
+
+          <div class="card">
+            <h3>3. JavaScript interactiv</h3>
+            <p style="margin:6px 0 0">Apasă butonul de mai jos pentru a vedea o acțiune JavaScript.</p>
+          </div>
+
+          <div class="card">
+            <h3>4. Publicare</h3>
+            <p style="margin:6px 0 0">Poți urca fișierul pe GitHub Pages sau pe un serviciu de hosting static să fie accesibil online.</p>
+          </div>
+        </div>
+
+        <p style="margin-top:12px">
+          <a href="#" class="btn" id="btnDemo">Apasă-mă</a>
+          <span style="margin-left:10px;color:#9fb6c3">— afișează un mesaj prietenilor tăi</span>
+        </p>
+
+      </div>
+
+      <!-- Panou lateral: formular -->
+      <aside style="padding:6px;">
+        <div style="background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:10px;padding:12px;">
+          <h3 style="margin:0 0 8px">Trimite un mesaj</h3>
+          <form id="contact" onsubmit="return handleContact(event)">
+            <label for="nume">Nume</label>
+            <input id="nume" type="text" placeholder="Numele tău" required>
+
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="email@exemplu.com" required>
+
+            <label for="mesaj">Mesaj</label>
+            <textarea id="mesaj" placeholder="Scrie un mesaj..."></textarea>
+
+            <div style="margin-top:10px;">
+              <button type="submit" class="btn">Trimite (exemplu)</button>
+            </div>
+
+            <p class="note">Formularul nu trimite date pe internet. Este doar demo local.</p>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <section style="margin-top:18px">
+      <div class="card" style="padding:18px">
+        <h2>Cum să îl trimiți prietenilor</h2>
+        <ol>
+          <li>Salvează fișierul ca <code>index.html</code>.</li>
+          <li>Trimite-l prin e-mail, Telegram, Discord sau Google Drive — prietenii îl descarcă și deschid în Chrome.</li>
+          <li>Dacă vrei să fie online: urcă fișierul pe GitHub și activează <strong>GitHub Pages</strong>, sau folosește Netlify / Vercel pentru hosting gratuit.</li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 — Exemplu simplu — Deschis în Chrome sau orice browser modern.
+  </footer>
+
+  <!-- Script JavaScript mic -->
+  <script>
+    document.getElementById('btnDemo').addEventListener('click', function(e){
+      e.preventDefault();
+      const name = prompt('Cum te cheamă?');
+      if(name){
+        alert('Salut, ' + name + '! Prietenii tăi pot deschide acest fișier în Chrome.');
+      } else {
+        alert('OK — salut!');
+      }
+    });
+
+    function handleContact(e){
+      e.preventDefault();
+      const nume = document.getElementById('nume').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mesaj = document.getElementById('mesaj').value.trim();
+      // Doar afisam local — nu trimitem nicăieri
+      alert('Mesaj pregătit:\nNume: ' + nume + '\\nEmail: ' + email + '\\nMesaj: ' + (mesaj || '[gol]'));
+      // curata formular
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
